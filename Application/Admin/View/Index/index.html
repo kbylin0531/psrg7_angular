@@ -11,7 +11,7 @@
             font-family: 'Material Icons';
             font-style: normal;
             font-weight: 400;
-            src: local('Material Icons'), local('MaterialIcons-Regular'), url(./assets/material+icons.woff2) format('woff2');
+            src: local('Material Icons'), local('MaterialIcons-Regular'), url(__PUBLIC__/assets/material+icons.woff2) format('woff2');
         }
 
         .material-icons {
@@ -30,16 +30,18 @@
             -webkit-font-smoothing: antialiased;
         }
     </style>
-    <link rel="stylesheet" href="styles/vendor.css">
-    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="__PUBLIC__/styles/vendor.css">
+    <link rel="stylesheet" href="__PUBLIC__/styles/app.css">
 </head>
 <body>
 <div ui-view="" layout="row" layout-fill=""></div>
-<script src="scripts/vendor.js"></script>
+<script src="__PUBLIC__/scripts/vendor.js"></script>
+<script src="__PUBLIC__/static/L/index.js"></script>
 <script>
+    var psrg_vars = L.O.toObj('{$psrg_vars}');
     //TODO:L.js to load library
     //TODO:assign data by user
 </script>
-<script src="scripts/app.js"></script>
+<script src="__PUBLIC__/scripts/app.js"></script>
 </body>
 </html>

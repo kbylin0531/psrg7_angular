@@ -56,3 +56,9 @@ Design by [flatlogic.com](http://flatlogic.com/)
 - [Tweet about it](https://twitter.com/intent/tweet?text=Angular%20Material%20Dashboard%20https://github.com/flatlogic/angular-material-dashboard%20via%20@flatlogicinc) to support revolution in classic paid templates market.
 - Follow [@flatlogicinc on Twitter](https://twitter.com/flatlogicinc).
 - Subscribe to Flatlogic newsletter at [flatlogic.com](http://flatlogic.com/)
+
+
+
+# Change
+template is place in Public
+and index.html is in application dir
