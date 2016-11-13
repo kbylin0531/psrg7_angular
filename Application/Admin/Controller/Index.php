@@ -24,6 +24,11 @@ class Index
         ];
     }
 
+    public function login(){
+        $this->display();
+    }
+
+
     public function index()
     {
         $this->display();
