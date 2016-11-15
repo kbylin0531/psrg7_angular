@@ -9,7 +9,7 @@
 </head>
 <body>
 <article class="htmleaf-container">
-    <form name="login"  autocomplete="off">
+    <form name="login" method="post" autocomplete="off">
         <div class="panel-lite">
             <div class="thumbur">
                 <div class="icon-lock"></div>
@@ -22,7 +22,7 @@
             <div class="form-group">
                 <!-- forbiden auto fill-->
                 <input type="password" style="position:absolute;top: -999px;"/>
-                <input type="password" name="password" required="required" class="form-control ">
+                <input type="password" name="password" required="required" class="form-control passwd-input">
                 <label class="form-label"> Password </label>
             </div>
             <a href="#">forget password </a>
@@ -30,6 +30,7 @@
         </div>
     </form>
 </article>
-
+<script src="__PUBLIC__/static/L/index.js"></script>
+<script src="__PUBLIC__/static/script/login.js"></script>
 </body>
 </html>

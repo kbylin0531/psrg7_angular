@@ -7,46 +7,36 @@
  */
 namespace Application\Admin\Controller;
 
-use Sharin\Core\SEK;
-use Sharin\Library\View;
+use Sharin\Addon\Sign\SignAddon;
+use Sharin\Addon\Sign\SignModel;
+use Sharin\Traits\Controller\Redirect;
+use Sharin\Traits\Controller\Render;
 
 class Index
 {
-    private $context = null;
+
+    use Render;
+    use Redirect;
+    /**
+     * @var SignAddon
+     */
+    protected $sign = null;
 
     public function __construct()
     {
-        $this->context = [
-            't' => '',
-            'm' => 'Admin',
-            'c' => 'Index',
-            'a' => null,
-        ];
-    }
-
-    public function login(){
-        $this->display();
+        $this->sign = SignAddon::getInstance(SignModel::getInstance());
+        if (!$this->sign->getInfo()) {
+            $this->redirect('Admin/Publics/login');
+        }
     }
 
 
     public function index()
     {
-        $this->display();
-    }
-
-    public function app()
-    {
-        die('dadsada');
-    }
-
-    final protected function display($template = null)
-    {
-        View::assign('psrg_vars',json_encode([
+        $this->assign('psrg_vars', json_encode([
             'basic_url' => SR_PUBLIC_PATH_URL,
         ]));
-        isset($template) or $template = SEK::backtrace(SEK::ELEMENT_FUNCTION, SEK::PLACE_FORWARD);
-        $this->context['a'] = $template;
-        View::display($this->context);
+        $this->display();
     }
 
 }

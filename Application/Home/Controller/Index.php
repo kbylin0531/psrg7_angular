@@ -1,8 +1,11 @@
 <?php
 namespace Application\Home\Controller;
-use Sharin\Library\Controller;
 
-class Index extends Controller{
+use Sharin\Traits\Controller\Render;
+
+class Index {
+
+    use Render;
 
     public function index(){
         $this->assign('info',[
