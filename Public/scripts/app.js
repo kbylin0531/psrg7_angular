@@ -1,17 +1,20 @@
 "use strict";
-//basic url to access
+/**
+ * basic url to access
+ */
 var srg_base_url = psrg_vars["basic_url"];
-
+/**
+ * You must include the dependency on 'ngMaterial'
+ */
 angular.module("app", ["ngMaterial"]);
 
 angular.module("app").service("todoListService", ["$q", function (e) {
-    var a = [{text: "Continuous integration", done: !1}, {
-        text: "Implement panel-widget directive",
-        done: !0
-    }, {text: "Add backend", done: !1}];
     return {
         loadAllItems: function () {
-            return e.when(a)
+            return e.when([{text: "Continuous integration", done: !1}, {
+                text: "Implement panel-widget directive",
+                done: !0
+            }, {text: "Add backend", done: !1}])
         }
     }
 }]);
@@ -584,11 +587,20 @@ angular.module("app").controller("TodoController", ["todoListService", function 
 }]);
 
 angular.module("app").controller("TableController", ["tableService", function (e) {
-    var a = this;
-    a.tableData = [];
-    e.loadAllItems().then(function (e) {
-        a.tableData = [].concat(e)
-    })
+    L.load([
+        'build-in/datatables/media/css/dataTables.bootstrap.min.css',
+        'http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css',
+        'build-in/jquery.js',
+        'http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js',
+        'build-in/datatables/media/js/jquery.dataTables.min.js',
+        'build-in/datatables/media/js/dataTables.bootstrap.min.js'
+    ]).use('datatables',function () {
+        L.P.datatables.create('#example');
+        // a.tableData = [];
+        // e.loadAllItems().then(function (e) {
+        //     a.tableData = [].concat(e)
+        // })
+    });
 }]);
 
 angular.module("app").controller("SearchController", ["$timeout", "$q", "countriesService", function (e, a, t) {
@@ -831,6 +843,12 @@ angular.module("angularMaterialAdmin",
                 controller: "MainController",
                 controllerAs: "vm",
                 "abstract": !0
+            }).state("home.profile", {
+                url: "/profile",
+                templateUrl: srg_base_url + "app/views/profile.html",
+                controller: "ProfileController",
+                controllerAs: "vm",
+                data: {title: "Profile"}
             }).state("home.dashboard", {
                 // while access "#/dashboard"
                 url: "/dashboard",
@@ -838,12 +856,6 @@ angular.module("angularMaterialAdmin",
                 controller: "CommonController",
                 controllerAs: "cc",
                 data: {title: "Dashboard"}
-            }).state("home.profile", {
-                url: "/profile",
-                templateUrl: srg_base_url + "app/views/profile.html",
-                controller: "ProfileController",
-                controllerAs: "vm",
-                data: {title: "Profile"}
             }).state("home.table", {
                 url: "/table",
                 controller: "TableController",

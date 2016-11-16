@@ -9,50 +9,46 @@
     </md-input-container>
 </md-content>
 <md-content class="md-padding">
-    <form name="userForm">
-        <div layout layout-sm="column">
-            <md-input-container flex="80">
-                <label>Company (Disabled)</label>
-                <input ng-model="vm.user.company" disabled>
-            </md-input-container>
-            <md-input-container flex>
-                <label>Submission Date</label>
-                <input type="date" ng-model="vm.user.submissionDate">
-            </md-input-container>
-        </div>
-        <div layout layout-sm="column">
-            <md-input-container flex>
-                <label>First Name</label>
-                <input ng-model="vm.user.firstName"
-                       placeholder="Placeholder text">
-            </md-input-container>
-            <md-input-container flex>
-                <label>Last Name</label>
-                <input ng-model="vm.user.lastName">
-            </md-input-container>
-        </div>
+    <div layout layout-sm="column">
+        <!--<md-input-container flex="80">-->
+        <!--<label>Company (Disabled)</label>-->
+        <!--<input ng-model="vm.user.company" disabled>-->
+        <!--</md-input-container>-->
         <md-input-container flex>
-            <label>Address</label>
-            <input ng-model="vm.user.address">
+            <label>Birthday</label>
+            <input type="date" ng-model="vm.user.birthday">
         </md-input-container>
-        <div layout layout-sm="column">
-            <md-input-container flex>
-                <label>City</label>
-                <input ng-model="vm.user.city">
-            </md-input-container>
-            <md-input-container flex>
-                <label>State</label>
-                <input ng-model="user.state">
-            </md-input-container>
-            <md-input-container flex>
-                <label>Postal Code</label>
-                <input ng-model="vm.user.postalCode">
-            </md-input-container>
-        </div>
+        <md-input-container flex="30">
+            <label>Phone</label>
+            <input type="text" ng-model="vm.user.phone">
+        </md-input-container>
+        <md-input-container flex="30">
+            <label>Nickname</label>
+            <input type="text" ng-model="vm.user.nickname">
+        </md-input-container>
+        <md-input-container flex="20">
+            <label>Sex</label>
+            <md-select name="sex" ng-model="vm.user.sex" required="">
+                <md-option value="1">Man</md-option>
+                <md-option value="0">Women</md-option>
+            </md-select>
+            <div class="errors" ng-messages="">
+                <div ng-message="required">Required</div>
+            </div>
+        </md-input-container>
+    </div>
+    <div layout layout-sm="column">
         <md-input-container flex>
-            <label>About us</label>
-            <textarea ng-model="vm.user.biography" columns="1"
-                      md-maxlength="150"></textarea>
+            <label>First Name</label>
+            <input ng-model="vm.user.firstName"
+                   placeholder="Placeholder text">
         </md-input-container>
-    </form>
+        <md-input-container flex>
+            <label>Last Name</label>
+            <input ng-model="vm.user.lastName">
+        </md-input-container>
+    </div>
+</md-content>
+<md-content md-theme="dark" layout="row">
+    <md-button class="md-raised">Save</md-button>
 </md-content>
