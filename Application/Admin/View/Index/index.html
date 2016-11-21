@@ -30,18 +30,18 @@
             -webkit-font-smoothing: antialiased;
         }
     </style>
-    <link rel="stylesheet" href="__PUBLIC__styles/vendor.css">
-    <link rel="stylesheet" href="__PUBLIC__styles/app.css">
 </head>
 <body>
 <div ui-view="" layout="row" layout-fill=""></div>
-<script src="__PUBLIC__scripts/vendor.js"></script>
-<script src="__PUBLIC__scripts/L/index.js"></script>
+<script src="__PUBLIC__isea/index.js"></script>
 <script>
-    var psrg_vars = L.O.toObj('{$psrg_vars}');
-    //TODO:L.js to load library
-    //TODO:assign data by user
+    var psrg_vars = isea.util.toObj('{$psrg_vars}');
+    isea.loader.load([
+        'styles/vendor.css',
+        'styles/app.css',
+        'scripts/vendor.js',
+        'scripts/app.js'
+    ]);
 </script>
-<script src="__PUBLIC__scripts/app.js"></script>
 </body>
 </html>

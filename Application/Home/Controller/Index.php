@@ -12,6 +12,7 @@ class Index {
             'author'    => 'lin',
             'address'   => 'https://github.com/kbylin0531/sharin7',
         ]);
+
         $this->display();
     }
 

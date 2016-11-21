@@ -586,22 +586,6 @@ angular.module("app").controller("TodoController", ["todoListService", function 
     })
 }]);
 
-angular.module("app").controller("TableController", ["tableService", function (e) {
-    L.load([
-        'build-in/datatables/media/css/dataTables.bootstrap.min.css',
-        'http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css',
-        'build-in/jquery.js',
-        'http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js',
-        'build-in/datatables/media/js/jquery.dataTables.min.js',
-        'build-in/datatables/media/js/dataTables.bootstrap.min.js'
-    ]).use('datatables',function () {
-        L.P.datatables.create('#example');
-        // a.tableData = [];
-        // e.loadAllItems().then(function (e) {
-        //     a.tableData = [].concat(e)
-        // })
-    });
-}]);
 
 angular.module("app").controller("SearchController", ["$timeout", "$q", "countriesService", function (e, a, t) {
     function n(t) {
@@ -858,7 +842,8 @@ angular.module("angularMaterialAdmin",
                 data: {title: "Dashboard"}
             }).state("home.table", {
                 url: "/table",
-                controller: "TableController",
+                controller: function ($scope) {
+                },
                 controllerAs: "vm",
                 templateUrl: srg_base_url + "app/views/table.html",
                 data: {title: "Table"}

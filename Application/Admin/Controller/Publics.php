@@ -36,7 +36,7 @@ class Publics
 
     public function logout()
     {
-        \Sharin\dumpout($this->sign->signOut());
+        $this->sign->signOut();
         $this->display('login');
     }
 
