@@ -33,7 +33,6 @@ class ArticleModel extends BaseModel
                      array('addtime', 'time', 1, 'function'),
                      array('description', 'getDescription', 3, 'callback'),
                      array('keywords', 'comma2coa', 3, 'callback'),] as $item) {
-
         }
 
         return true;
