@@ -1,17 +1,19 @@
 <?php
 namespace Application\Admin\Model;
+use Sharin\Library\Think;
 
-use Org\Bjy\Data;
 
 /**
- * 分类model
+ * Class CategoryModel 分类model
  * @method CategoryModel getInstance() static
+ * @package Application\Admin\Model
  */
 class CategoryModel extends BaseModel
-{    protected function tableName()
 {
-    return 'tag';
-}
+    protected function tableName()
+    {
+        return 'tag';
+    }
 
     protected function validateInsert($fields)
     {
@@ -27,6 +29,9 @@ class CategoryModel extends BaseModel
     {
         return true;
     }
+
+    
+
     // 自动验证
     protected $_validate = array(
         array('cname', 'require', '分类名不能为空'),
@@ -39,7 +44,8 @@ class CategoryModel extends BaseModel
      */
     public function addData()
     {
-        $data = I('post.');
+
+        $data = Think::I('post.');
         if ($this->create($data)) {
             return $this->add();
         }
@@ -52,7 +58,7 @@ class CategoryModel extends BaseModel
      */
     public function editData()
     {
-        $data = I('post.');
+        $data = Think::I('post.');
         if ($this->create($data)) {
             return $this->where(array('cid' => $data['cid']))->save($data);
         }
