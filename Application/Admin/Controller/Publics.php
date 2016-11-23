@@ -40,6 +40,17 @@ class Publics
         $this->display('login');
     }
 
+    /**
+     * get name-code pair of country
+     */
+    public function countries()
+    {
+        Response::cleanOutput();
+        $content = file_get_contents(__DIR__ . '/../Data/countries.json');
+        header('Content-Type:application/json; charset=utf-8');
+        exit($content);
+    }
+
     public function login($username = '', $password = '')
     {
         if (SR_IS_POST) {
