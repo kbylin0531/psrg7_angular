@@ -14,7 +14,7 @@ return [
     ],
     DRIVER_CONFIG_LIST => [
         [
-            'dbname'    => 'sharin',//选择的数据库
+            'dbname'    => 'blog',//选择的数据库
             'username'  => 'lin',
             'password'  => '123456',
             'host'      => '127.0.0.1',
